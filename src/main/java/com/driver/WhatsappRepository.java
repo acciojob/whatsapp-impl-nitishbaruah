@@ -29,12 +29,15 @@ public class WhatsappRepository {
         this.messageId = 0;
     }
 
-    public String createUser(String name,String number) throws Exception {
+    public boolean checkNewUser(String number){
         if(userMap.containsKey(number)){
-            throw new Exception("User already exists");
+            return true;
         }
+        return false;
+    }
+    public String createUser(String name,String number) throws Exception {
         userMap.put(number,new User(name,number));
-        return "Success";
+        return "SUCCESS";
     }
     public Group createGroup(List<User> users){
         if(users.size()==2){
@@ -87,7 +90,7 @@ public class WhatsappRepository {
         if(!flag) throw new Exception("User is not a participant");
         adminMap.put(group,user);
 
-        return "Success";
+        return "SUCCESS";
     }
 
 

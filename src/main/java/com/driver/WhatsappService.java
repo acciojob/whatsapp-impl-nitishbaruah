@@ -10,6 +10,9 @@ public class WhatsappService {
     public String createUser(String name, String mobile) throws Exception {
         return whatsappRepository.createUser(name, mobile);
     }
+    public boolean checkNewUser(String number){
+        return whatsappRepository.checkNewUser(number);
+    }
 
     public Group createGroup(List<User> users){
         return whatsappRepository.createGroup(users);
